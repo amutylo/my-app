@@ -8,9 +8,9 @@ export default class CanvasCity extends React.Component {
     }
 
     componentDidMount(){
-        var canvas = ReactDOM.findDOMNode(this.refs.canvas);
+        let canvas = ReactDOM.findDOMNode(this.refs.canvas);
         this.stage = new createjs.Stage(canvas);
-        var circle = new createjs.Shape();
+        let circle = new createjs.Shape();
         circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
         circle.x = 100;
         circle.y = 100;
