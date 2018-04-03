@@ -4,8 +4,9 @@ import $ from "jquery";
 export default class CanvasCity extends React.Component {
 
     componentDidMount() {
-        $(document).on('click', function (e, data) {
-            console.log('click outside')
+        document.addEventListener('outside1', function (e) {
+            console.log('click')
+            console.log('The time is: ' + e.detail);
         });
     }
     componentWillUnmount() {

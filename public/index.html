@@ -61,7 +61,9 @@
 
             // console.log('this is a function outside map js, it can be any function loaded before map js is loaded. just tell us what function to call out to, to load the panel with content from JSON WP feed')
 
-            jQuery(document).trigger('click', ['my custom event'])
+            // jQuery('#root').trigger('outside1', ['my custom event'])
+            var event = new CustomEvent('outside1',  { detail: '1234' });
+            document.dispatchEvent(event);
         }
 
         function outsideFunctionCallAnother () {
