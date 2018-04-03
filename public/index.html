@@ -21,12 +21,66 @@
     -->
     <title>React App</title>
     <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/js/Test-Map-3.js"></script>
+    <script>
+        var canvas, stage, exportRoot;
+        function init() {
+            // --- write your JS code here ---
+
+            canvas = document.getElementById("canvas");
+            images = images||{};
+            ss = ss||{};
+
+            var loader = new createjs.LoadQueue(false);
+            loader.addEventListener("fileload", handleFileLoad);
+            loader.addEventListener("complete", handleComplete);
+            loader.loadFile({src:"images/Test_Map_3_atlas_P_.json", type:"spritesheet", id:"Test_Map_3_atlas_P_"}, true);
+            loader.loadManifest(lib.properties.manifest);
+        }
+
+        function handleFileLoad(evt) {
+            if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+        }
+
+        function handleComplete(evt) {
+            var queue = evt.target;
+            ss["Test_Map_3_atlas_P_"] = queue.getResult("Test_Map_3_atlas_P_");
+            exportRoot = new lib.TestMap3();
+
+            stage = new createjs.Stage(canvas);
+            stage.addChild(exportRoot);
+            stage.update();
+
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage);
+        }
+
+        function outsideFunctionCall (e) {
+            //alert('this is a function outside map js, it can be any function loaded before map js is loaded. just tell us what function to call out to, to load the panel with content from JSON WP feed');
+
+            // console.log('this is a function outside map js, it can be any function loaded before map js is loaded. just tell us what function to call out to, to load the panel with content from JSON WP feed')
+
+            jQuery(document).trigger('click', ['my custom event'])
+        }
+
+        function outsideFunctionCallAnother () {
+            //alert('this is a function outside map js, it can be any function loaded before map js is loaded. just tell us what function to call out to, to load the panel with content from JSON WP feed');
+
+            // console.log('this is a function outside map js another')
+            jQuery(document).trigger('outsideEvent2')
+
+        }
+
+    </script>
   </head>
-  <body>
+  <body onload="init();" style="background-color:#D4D4D4;margin:0px;">
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+    <canvas id="canvas" width="1920" height="1080" style="background-color:#FFFFFF"></canvas>
     <div id="root"></div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
