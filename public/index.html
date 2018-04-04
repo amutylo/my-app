@@ -19,9 +19,12 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Xylem</title>
     <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
     <script src="/js/Test-Map-3.js"></script>
     <script>
         var canvas, stage, exportRoot;
@@ -61,16 +64,15 @@
 
             // console.log('this is a function outside map js, it can be any function loaded before map js is loaded. just tell us what function to call out to, to load the panel with content from JSON WP feed')
 
-            // jQuery('#root').trigger('outside1', ['my custom event'])
-            var event = new CustomEvent('outside1',  { detail: '1234' });
-            document.dispatchEvent(event);
+              var event1 = new CustomEvent('outside1',  { detail: '1234' });
+              document.dispatchEvent(event1);
         }
 
         function outsideFunctionCallAnother () {
             //alert('this is a function outside map js, it can be any function loaded before map js is loaded. just tell us what function to call out to, to load the panel with content from JSON WP feed');
 
-            // console.log('this is a function outside map js another')
-            jQuery(document).trigger('outsideEvent2')
+            var event2 = new CustomEvent('outside2',  { detail: '4321' });
+            document.dispatchEvent(event2);
 
         }
 

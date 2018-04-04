@@ -1,23 +1,25 @@
 import React from 'react';
-import $ from "jquery";
 
 export default class CanvasCity extends React.Component {
 
     componentDidMount() {
-        document.addEventListener('outside1', function (e) {
-            console.log('click')
-            console.log('The time is: ' + e.detail);
-        });
+        document.addEventListener('outside1', this.handleClickOutsideOne);
+        document.addEventListener('outside2', this.handleClickOutsideTwo);
     }
     componentWillUnmount() {
         // make sure you remove the listener when the component is destroyed
-        $(document).unbind('outsideEvent1', this.handleClickOutside);
+        document.removeEventListener('outside1', this.handleClickOutsideOne);
+        document.removeEventListener('outside2', this.handleClickOutsideTwo);
     }
 
 
-    // handleClickOutside(e, data) {
-    //     console.log('click outside')
-    // }
+    handleClickOutsideOne(e) {
+        console.log('Click one data is: ' + e.detail);
+    }
+
+    handleClickOutsideTwo(e) {
+        console.log('Click two data is: ' + e.detail);
+    }
 
     render() {
         return (
