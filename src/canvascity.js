@@ -1,7 +1,7 @@
 import React from 'react';
-// import Preloader from './components/preloader/preloader';
-import ReactSlick from './components/reactslick/reactslick';
-import EmailForm from "./components/emailform/emailform";
+ import Preloader from './components/preloader/preloader';
+//import ReactSlick from './components/reactslick/reactslick';
+//import EmailForm from "./components/emailform/emailform";
 
 export default class CanvasCity extends React.Component {
     constructor(props) {
@@ -36,9 +36,9 @@ export default class CanvasCity extends React.Component {
     render() {
         return (
             <div ref="container" >
-                {/*<Preloader/>*/}
+                <Preloader/>
                 {/*<ReactSlick images={this.images}/>*/}
-                <EmailForm/>
+                {/*<EmailForm/>*/}
             </div>
         )
     }

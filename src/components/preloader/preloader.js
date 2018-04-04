@@ -4,12 +4,11 @@ import './preloader.css';
 export default class Preloader extends Component {
     constructor(props) {
         super(props);
-        this.countRef = React.createRef();
-        this.waterRef = React.createRef();
     }
+
     componentDidMount() {
-        var cnt= document.getElementById('count');
-        var water= document.getElementById('water');
+        var cnt= this.refs.count;
+        var water= this.refs.water;
         var percent=cnt.innerText;
         var interval;
         interval=setInterval(function(){
@@ -39,10 +38,10 @@ export default class Preloader extends Component {
                 </svg>
                 <div className="box">
                     <div className="percent">
-                        <div className="percentNum" id="count" ref={this.countRef}>0</div>
+                        <div className="percentNum" id="count" ref="count">0</div>
                         <div className="percentB">%</div>
                     </div>
-                    <div id="water" className="water" ref={this.waterRef}>
+                    <div id="water" className="water" ref="water">
                         <svg viewBox="0 0 560 20" className="water_wave water_wave_back">
                             <use xlinkHref="#wave"></use>
                         </svg>

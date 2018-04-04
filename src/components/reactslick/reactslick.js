@@ -9,14 +9,6 @@ export default class ReactSlick extends Component {
         this.images = props.images;
     }
 
-    createImage(image) {
-        return <Image source={image} key={image} />;
-    }
-
-    createImages(images){
-        return images.map(this.createImage);
-    }
-
 
     render() {
 
@@ -30,19 +22,7 @@ export default class ReactSlick extends Component {
         return (
             <div className="container">
                 <Slider {...settings}>
-                    {/*<div>*/}
-                        {/*<img src="http://placekitten.com/g/400/200" />*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                        {/*<img src="http://placekitten.com/g/400/200" />*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                        {/*<img src="http://placekitten.com/g/400/200" />*/}
-                    {/*</div>*/}
-                    {/*<div>*/}
-                        {/*<img src="http://placekitten.com/g/400/200" />*/}
-                    {/*</div>*/}
-                    {this.createImages(this.images)}
+                  {this.images.map((image, i) => <Image source={image} key={`image-${i}`} />)}
                 </Slider>
             </div>
         );
