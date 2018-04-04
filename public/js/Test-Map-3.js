@@ -277,11 +277,11 @@ var added = false;
       this.tennisclick.addEventListener("click", fl_MouseClickHandler_2.bind(this));
       added = true;
     }
-		function fl_MouseClickHandler_2()
+		function fl_MouseClickHandler_2(e)
 		{
 			// Start your custom code
 			// This example code displays the words "Mouse clicked" in the Output panel.
-			outsideFunctionCallAnother();
+			outsideFunctionCall(e);
 			//alert("Mouse clicked");
 			// End your custom code
 		}

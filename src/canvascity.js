@@ -1,6 +1,17 @@
 import React from 'react';
+// import Preloader from './components/preloader/preloader';
+import ReactSlick from './components/reactslick/reactslick';
 
 export default class CanvasCity extends React.Component {
+    constructor(props) {
+        super(props);
+        this.images = [
+            'http://placekitten.com/g/400/200',
+            'http://placekitten.com/g/400/200',
+            'http://placekitten.com/g/400/200',
+            'http://placekitten.com/g/400/200'
+        ];
+    }
 
     componentDidMount() {
         document.addEventListener('outside1', this.handleClickOutsideOne);
@@ -24,6 +35,8 @@ export default class CanvasCity extends React.Component {
     render() {
         return (
             <div ref="container" >
+                {/*<Preloader/>*/}
+                {/*<ReactSlick images={this.images}/>*/}
             </div>
         )
     }
