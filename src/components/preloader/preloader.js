@@ -3,12 +3,15 @@ import './preloader.css';
 
 export default class Preloader extends Component {
     constructor(props) {
-        super(props);
+      super(props);
+
     }
 
     componentDidMount() {
-        var cnt= this.refs.count;
-        var water= this.refs.water;
+        let cnt= this.refs.count;
+        let water= this.refs.water;
+        let preloader = this.refs.preloader;
+        preloader.style.display = 'block';
         var percent=cnt.innerText;
         var interval;
         interval=setInterval(function(){
@@ -16,14 +19,15 @@ export default class Preloader extends Component {
             cnt.innerHTML = percent;
             water.style.transform = 'translate(0'+','+(100-percent)+'%)';
             if(percent === 100){
-                clearInterval(interval);
+              clearInterval(interval);
+              preloader.style.display = 'none';
             }
         },60);
     }
 
     render() {
         return (
-            <div className="preloader">
+            <div className="preloader" ref='preloader'>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style={{display: 'none'}}>
                     <symbol id="wave">
                         <path
