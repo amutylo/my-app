@@ -49,6 +49,7 @@ export default class EmailForm extends Component {
           <p>
             <span className="input input--yoshiko">
             <input
+              className="input__field input__field--yoshiko"
               type="email"
               name="email"
               ref={(inputEmail) => this.inputEmail = inputEmail}
@@ -64,6 +65,7 @@ export default class EmailForm extends Component {
           <p>
             <span className="input input--yoshiko">
             <input
+              className="input__field input__field--yoshiko"
               type="phone"
               name="phone"
               ref={(inputPhone) => this.inputPhone = inputPhone}
@@ -79,6 +81,7 @@ export default class EmailForm extends Component {
           <p>
             <span className="input input--yoshiko">
             <input
+              className="input__field input__field--yoshiko"
               type="text"
               name="postcode"
               ref={(inputPostcode) => this.inputPostcode = inputPostcode}
